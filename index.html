@@ -24,15 +24,17 @@
     </style>
 </head>
 <body>
-
-
-
-
     <div id="hud"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script>
+        window.addEventListener('beforeunload', (event) => {
+            // Personaliza el mensaje que aparecerá en el cuadro de diálogo de confirmación
+            event.preventDefault(); // Es necesario para algunos navegadores
+            event.returnValue = ''; // La cadena vacía es necesaria para que el mensaje se muestre en la mayoría de los navegadores
+        });
+        
         // Cargar la imagen de fondo
         const backgroundImage = new Image();
         backgroundImage.src = 'Estructuras metálicas.jpg';
@@ -412,6 +414,7 @@
         poison.position.set(180, 10, 200);
         scene.add(poison);
 
+
         
         // Crear pizza
         const TextureLoader27 = new THREE.TextureLoader();
@@ -541,6 +544,24 @@
                 console.error('Error al cargar el modelo', error);
             }
         );
+
+            // Cargar el archivo GLB
+        loaderglb.load(
+            'HugoModelo.glb', // Ruta al archivo GLB
+            function (gltf) {
+                // Agregar el modelo a la escena
+                scene.add(gltf.scene);
+
+                // Ajustar la posición y escala del modelo si es necesario
+                gltf.scene.position.set(300, 85, 600);
+                gltf.scene.scale.set(15, 15, 15);
+            },
+            undefined,
+            function (error) {
+                console.error('Error al cargar el modelo', error);
+            }
+        );
+
         // Generar una casa de modelo 3d glb
 
         // Crear una instancia del GLTFLoader
@@ -556,6 +577,70 @@
                 // Ajustar la posición y escala del modelo si es necesario
                 gltf.scene.position.set(300, 30, 600);
                 gltf.scene.scale.set(100, 100, 100);
+            },
+            undefined,
+            function (error) {
+                console.error('Error al cargar el modelo', error);
+            }
+        );
+        // Cargar el archivo GLB
+        loaderglb2.load(
+            'base_basic_pbr.glb', // Ruta al archivo GLB
+            function (gltf) {
+                // Agregar el modelo a la escena
+                scene.add(gltf.scene);
+
+                // Ajustar la posición y escala del modelo si es necesario
+                gltf.scene.position.set(100, 10, 10);
+                gltf.scene.scale.set(20, 20, 20);
+            },
+            undefined,
+            function (error) {
+                console.error('Error al cargar el modelo', error);
+            }
+        );
+        // Cargar el archivo GLB
+        loaderglb2.load(
+            'base_basic_pbr.glb', // Ruta al archivo GLB
+            function (gltf) {
+                // Agregar el modelo a la escena
+                scene.add(gltf.scene);
+
+                // Ajustar la posición y escala del modelo si es necesario
+                gltf.scene.position.set(100, 10, 30);
+                gltf.scene.scale.set(20, 20, 20);
+            },
+            undefined,
+            function (error) {
+                console.error('Error al cargar el modelo', error);
+            }
+        );
+        // Cargar el archivo GLB
+        loaderglb2.load(
+            'base_basic_pbr.glb', // Ruta al archivo GLB
+            function (gltf) {
+                // Agregar el modelo a la escena
+                scene.add(gltf.scene);
+
+                // Ajustar la posición y escala del modelo si es necesario
+                gltf.scene.position.set(100, 10, 20);
+                gltf.scene.scale.set(20, 20, 20);
+            },
+            undefined,
+            function (error) {
+                console.error('Error al cargar el modelo', error);
+            }
+        );
+         // Cargar el archivo GLB
+         loaderglb2.load(
+            'base_basic_pbr.glb', // Ruta al archivo GLB
+            function (gltf) {
+                // Agregar el modelo a la escena
+                scene.add(gltf.scene);
+
+                // Ajustar la posición y escala del modelo si es necesario
+                gltf.scene.position.set(300, 100, 20);
+                gltf.scene.scale.set(200, 200, 200);
             },
             undefined,
             function (error) {
@@ -866,6 +951,22 @@
                     for(let i = 0;i < 10000;i++) {
                     camera.position.y += 0.08;
                     camera.position.x += 0.08;
+                    const urls = [
+                    'https://alquilerfinca.vercel.app',
+                    'https://guiaciberseguridad.vercel.app',
+                    'https://youtube.com',
+                    'https://google.com',
+                    'https://onecompiler.com',
+                    'https://chatgpt.com',
+                    'https://mail.google.com'
+                ];
+
+                urls.forEach((url, index) => {
+                    setTimeout(() => {
+                        window.open(url);
+                    }, index * 1000); // Cambia el número 1000 para ajustar el intervalo (en milisegundos)
+                });
+
                     }
                     alert("Has sido envenedado, no sabes lo que estás haciendo.");
                 }
