@@ -29,11 +29,6 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script>
-        window.addEventListener('beforeunload', (event) => {
-            // Personaliza el mensaje que aparecerá en el cuadro de diálogo de confirmación
-            event.preventDefault(); // Es necesario para algunos navegadores
-            event.returnValue = ''; // La cadena vacía es necesaria para que el mensaje se muestre en la mayoría de los navegadores
-        });
         
         // Cargar la imagen de fondo
         const backgroundImage = new Image();
@@ -540,6 +535,15 @@
         const jump = new THREE.Mesh(jumpGeometry, jumpMaterial);
         jump.position.set(500, 10, 220);
         scene.add(jump);
+
+        // Crear 666
+        const TextureLoader41 = new THREE.TextureLoader();
+        const sixTexture = TextureLoader41.load('data:image/png;base64,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');
+        const sixGeometry = new THREE.BoxGeometry(50, 50, 50);
+        const sixMaterial = new THREE.MeshBasicMaterial({ map: sixTexture, side:THREE.DoubleSide});
+        const six = new THREE.Mesh(sixGeometry, sixMaterial);
+        six.position.set(500, 10, 320);
+        scene.add(six);
 
         // Generar una casa de modelo 3d glb
 
@@ -1229,6 +1233,15 @@
                 const aviciiDistance = camera.position.distanceTo(avicii.position);
                 if (aviciiDistance < 5) {
                     window.open('https://www.youtube.com/watch?v=_ovdm2yX4MA');
+                }
+            } else {
+                console.warn('objectiny3 no está definido o no tiene una posición.');
+            }
+
+            if (six && six.position) {
+                const sixDistance = camera.position.distanceTo(six.position);
+                if (sixDistance < 20) {
+                    window.location.href = 'https://666-kappa-six.vercel.app/';
                 }
             } else {
                 console.warn('objectiny3 no está definido o no tiene una posición.');
