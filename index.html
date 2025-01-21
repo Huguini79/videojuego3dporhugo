@@ -567,22 +567,7 @@
             }
         );
 
-            // Cargar el archivo GLB
-        loaderglb.load(
-            'HugoModelo.glb', // Ruta al archivo GLB
-            function (gltf) {
-                // Agregar el modelo a la escena
-                scene.add(gltf.scene);
-
-                // Ajustar la posición y escala del modelo si es necesario
-                gltf.scene.position.set(300, 85, 600);
-                gltf.scene.scale.set(15, 15, 15);
-            },
-            undefined,
-            function (error) {
-                console.error('Error al cargar el modelo', error);
-            }
-        );
+            
 
         // Generar una casa de modelo 3d glb
 
